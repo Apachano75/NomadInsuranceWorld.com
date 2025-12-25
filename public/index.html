@@ -1,1 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Travel Insurance Calculator - Nomad Insurance World</title>
+    <meta name="description" content="Interactive travel insurance calculator to find personalized plans for your trip. Compare coverage for nomads, adventurers, students, and groups with expert recommendations.">
+    <meta name="keywords" content="travel insurance, nomad insurance, international medical insurance, adventure travel coverage, student insurance, group travel plans, digital nomad health insurance">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Microsoft Clarity Tag -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "jwnh7dhs8s");
+    </script>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary: #004aad;
+            --accent: #ff9f43;
+            --text: #1a1a1a;
+            --gray: #666;
+            --light: #f8f9fa;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            padding: 32px 20px;
+            min-height: 100vh;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 16px 0;
+            }
+        }
 
+        .container { 
+            max-width: 1200px; 
+            width: 100%; 
+            padding: 0 8px;
+        }
+        @media (min-width: 769px) {
+            .container { padding: 0; }
+        }
+
+        .glass {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 32px 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .glass {
+                padding: 24px 12px;
+                border-radius: 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .glass {
+                padding: 20px 8px;
+                border-radius: 14px;
+            }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px 16px;
+            margin-bottom: 12px;
+        }
+        @media (max-width: 768px) {
+            .form-grid { 
+                grid-template-columns: 1fr; 
+                gap: 16px; 
+            }
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+        }
+        .field.full-width {
+            grid-column: 1 / -1;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 1.02rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text);
+        }
+        label i { color: var(--primary); font-size: 1.15em; }
+        input, select {
+            padding: 12px 10px;
+            border: 1px solid rgba(0,0,0,0.15);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.95);
+            font-size: 1rem;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0,74,173,0.15);
+        }
+
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        @media (max-width: 640px) {
+            .destinations { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .destinations { grid-template-columns: 1fr; }
+        }
+
+        .dest-toggle {
+            padding: 14px 8px;
+            border: 1px solid rgba(0,0,0,0.15);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.95);
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            min-height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .dest-toggle.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .submit-wrapper {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            margin-top: 6px;
+        }
+        button[type="submit"], #reset {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #error-message {
+            grid-column: 1 / -1;
+            color: #d63031;
+            text-align: center;
+            font-weight: 600;
+            margin: 8px 0;
+            font-size: 1rem;
+        }
+
+        #results { display: none; margin-top: 24px; }
+        .motivator {
+            text-align: center;
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .plans-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 769px) {
+            .plans-container {
+                grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            }
+        }
+
+        .plan-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 14px;
+            padding: 20px 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            width: 100%;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+        @media (max-width: 480px) {
+            .plan-card {
+                padding: 16px 8px;
+            }
+        }
+
+        .plan-card h2 {
+            text-align: center;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+        .plan-card ul {
+            list-style-type: disc;
+            padding-left: 16px;
+            margin: 12px 0;
+            flex-grow: 1;
+        }
+        .plan-card ul li {
+            margin-bottom: 6px;
+            line-height: 1.45;
+        }
+        .why-section {
+            margin: 14px 0;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        .quote-btn {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 14px;
+            align-self: center;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .notes p {
+            margin: 8px 0;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .disclaimer {
+            font-size: 0.72rem;
+            color: white;
+            opacity: 0.9;
+            text-align: center;
+            margin-top: 24px;
+            line-height: 1.4;
+            padding: 0 6px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--primary);
+            margin: 0;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Ajuste del tamaño del título según el tamaño de pantalla */
+        h1 {
+            font-size: clamp(2rem, 6vw, 2.8rem);
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: clamp(1.8rem, 5.5vw, 2.4rem);
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: clamp(1.6rem, 5vw, 2.2rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header style="text-align: center; margin-bottom: 28px;">
+            <h1 style="color: var(--primary); margin-bottom: 8px;">
+                Calculate Your Ideal Coverage in Seconds!
+            </h1>
+            <p class="hero-subtitle">
+                Personalized Travel Insurance Recommendations
+            </p>
+        </header>
+
+        <div class="glass">
+            <form id="insurance-form">
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="age"><i class="fas fa-user"></i> Your Age</label>
+                        <input type="number" id="age" min="1" max="120" required placeholder="e.g. 32">
+                    </div>
+
+                    <div class="field">
+                        <label for="pre-existing"><i class="fas fa-heartbeat"></i> Pre-existing Conditions?</label>
+                        <select id="pre-existing">
+                            <option value="">Select...</option>
+                            <option>No</option>
+                            <option>Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="duration"><i class="fas fa-calendar-alt"></i> Trip Duration</label>
+                        <select id="duration">
+                            <option value="">Select...</option>
+                            <option>1 - 30 Days</option>
+                            <option>1 - 6 Months</option>
+                            <option>6+ Months</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="travelers"><i class="fas fa-users"></i> Number of Travelers</label>
+                        <input type="number" id="travelers" min="1" placeholder="e.g. 1 or 5">
+                    </div>
+
+                    <div class="field">
+                        <label for="trip-type"><i class="fas fa-plane"></i> Trip Type</label>
+                        <select id="trip-type">
+                            <option value="">Select...</option>
+                            <option>Tourism / Business</option>
+                            <option>Tourism / Adventure Sports</option>
+                            <option>Digital Nomad / Remote Work</option>
+                            <option>Xtreme / Mountaineering</option>
+                            <option>Study / Exchange</option>
+                            <option>Schengen Visa Required</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="deductible"><i class="fas fa-hand-holding-usd"></i> Prefer Deductible?</label>
+                        <select id="deductible">
+                            <option value="">Select...</option>
+                            <option>No</option>
+                            <option>Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="field full-width">
+                        <label><i class="fas fa-globe"></i> Destinations (select all that apply)</label>
+                        <div class="destinations">
+                            <button type="button" class="dest-toggle" data-dest="USA/Canada">🇺🇸🇨🇦 USA/Canada</button>
+                            <button type="button" class="dest-toggle" data-dest="Europe">🇪🇺 Europe</button>
+                            <button type="button" class="dest-toggle" data-dest="Asia">🌏 Asia</button>
+                            <button type="button" class="dest-toggle" data-dest="Oceania">🇦🇺 Oceania</button>
+                            <button type="button" class="dest-toggle" data-dest="Latin America">🌎 Latin America</button>
+                            <button type="button" class="dest-toggle" data-dest="Africa">🌍 Africa</button>
+                        </div>
+                    </div>
+
+                    <div id="error-message"></div>
+
+                    <div class="submit-wrapper">
+                        <button type="submit">Show My Plans</button>
+                    </div>
+                </div>
+            </form>
+
+            <div id="results" class="glass">
+                <p class="motivator">Secure your dream trip today – click below and get the perfect coverage in minutes!</p>
+                <div class="plans-container">
+                    <div class="plan-card" id="plan1-card"></div>
+                    <div class="plan-card" id="plan2-card"></div>
+                </div>
+                <div class="notes" id="notes"></div>
+                <div style="text-align: center; margin-top: 16px;">
+                    <button id="reset">Try Another Query</button>
+                </div>
+                <p class="disclaimer">Disclaimer: This tool provides general suggestions based on your inputs and is for informational purposes only. Insurance coverage varies by provider, policy terms, conditions, and exclusions. We strongly recommend reviewing the full policy details, terms, and conditions directly with the insurance provider before making any purchase. Nomad Insurance World is an affiliate partner and may receive compensation for referrals or purchases made through our links. Prices and availability are subject to change. Always consult with a licensed insurance professional for personalized advice. Coverage may not be available in all jurisdictions or for all individuals.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const plans = {
+            'atlas-travel': { name: 'Atlas Travel', highlights: '<ul><li>Up to $2M medical coverage (age-dependent)</li><li>$0–$5,000 deductible options</li><li>100% coinsurance after deductible</li><li>24/7 worldwide assistance</li><li>Air Doctor telehealth & clinic access</li><li>Optional crisis & AD&D upgrades</li></ul>', why: 'Ideal for most travelers: flexible, high limits, excellent value and meets Schengen requirements.', quote: 'https://quote.worldtrips.com/atlastravel/?referid=28225-001&language=en-US' },
+            'genki-traveler': { name: 'Genki Traveler', highlights: '<ul><li>€1M medical coverage worldwide</li><li>Monthly subscription 1–12 months</li><li>Covers most sports & adventures</li><li>24/7 direct billing assistance</li><li>Telemedicine included</li><li>€50 deductible (waived inpatient)</li></ul>', why: 'Perfect for digital nomads and long stays: monthly flexibility and strong sports coverage.', quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=traveler' },
+            'genki-native': { name: 'Genki Native', highlights: '<ul><li>Long-term worldwide health insurance</li><li>Covers chronic & pre-existing (Premium)</li><li>All sports included</li><li>Direct billing & 3-day claims</li><li>Dental, mental health, maternity (Premium)</li><li>Ages 0–55</li></ul>', why: 'Best for seniors or those with pre-existing conditions needing comprehensive long-term protection.', quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=native' },
+            'world-nomads': { name: 'World Nomads Explorer', highlights: '<ul><li>150+ adventure activities covered</li><li>Trip cancellation & interruption</li><li>Emergency medical & evacuation</li><li>Lost/stolen gear protection</li><li>24/7 assistance</li><li>Buy/extend while traveling</li></ul>', why: 'Top choice for adventure seekers: unmatched activity coverage and gear protection.', quote: 'https://www.anrdoezrs.net/click-100974491-15736546?url=https%3A%2F%2Fwww.worldnomads.com%2Ftravel-insurance%2Fquote' },
+            'atlas-nomads': { name: 'Atlas Nomads', highlights: '<ul><li>Up to 1 year continuous coverage</li><li>$0 deductible</li><li>Up to $250,000 limit</li><li>Monthly or full payment</li><li>Air Doctor integration</li><li>Digital nomad focused</li></ul>', why: 'Tailored for digital nomads: long-term with zero deductible and easy monthly payments.', quote: 'https://quote.worldtrips.com/nomad-insurance/Home?referid=28225-001&language=en-US' },
+            'global-rescue': { name: 'Global Rescue', highlights: '<ul><li>Medical & security evacuation</li><li>Field rescue anywhere</li><li>24/7 advisory & telehealth</li><li>No claims or deductibles</li><li>Elite operators (SEALs, Rangers)</li><li>20,000+ operations</li></ul>', why: 'Essential for extreme adventures: world-class evacuation and rescue services.', quote: 'https://partner.globalrescue.com/nomadinsurance/index.html' },
+            'atlas-studentsecure': { name: 'Atlas StudentSecure', highlights: '<ul><li>Meets J-1 visa requirements</li><li>Monthly or full payment</li><li>Recreational sports covered</li><li>Air Doctor telehealth</li><li>24/7 multilingual assistance</li><li>Up to $200,000 limit</li></ul>', why: 'Designed for international students: visa-compliant with strong academic coverage.', quote: 'https://quote.worldtrips.com/studentsecure/?referid=28225-001&language=en-US' },
+            'atlas-group': { name: 'Atlas Group', highlights: '<ul><li>10% discount for 5+ travelers</li><li>Same benefits as Atlas Travel</li><li>Up to $2M coverage</li><li>One group payment</li><li>Ideal for families & tours</li><li>24/7 assistance</li></ul>', why: 'Best for groups: 10% discount and streamlined coverage for families or tours.', quote: 'https://quote.worldtrips.com/group/?referid=28225-001' },
+            'atlas-multitrip': { name: 'Atlas MultiTrip', highlights: '<ul><li>Unlimited trips in 364 days</li><li>$1M per illness/injury</li><li>Each trip up to 30/45 days</li><li>Lost luggage & liability</li><li>Political evacuation</li><li>Cost-effective annual plan</li></ul>', why: 'Perfect for frequent travelers: one policy covers all trips in a year.', quote: 'https://quote.worldtrips.com/multitrip/?referid=28225-001&language=en-US' }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('insurance-form');
+            const results = document.getElementById('results');
+            const errorMessage = document.getElementById('error-message');
+            const resetBtn = document.getElementById('reset');
+            const destButtons = document.querySelectorAll('.dest-toggle');
+
+            destButtons.forEach(btn => btn.addEventListener('click', () => btn.classList.toggle('active')));
+
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                errorMessage.textContent = '';
+
+                let age = document.getElementById('age').value.trim();
+                let preExisting = document.getElementById('pre-existing').value || 'No';
+                let duration = document.getElementById('duration').value || '1 - 30 Days';
+                let travelers = document.getElementById('travelers').value.trim() || '1';
+                let tripType = document.getElementById('trip-type').value || 'Tourism / Business';
+                let deductible = document.getElementById('deductible').value || 'No';
+                const selectedDests = document.querySelectorAll('.dest-toggle.active').length;
+                const destList = Array.from(document.querySelectorAll('.dest-toggle.active')).map(b => b.dataset.dest);
+
+                if (!age) {
+                    errorMessage.textContent = 'Please enter your age.';
+                    return;
+                }
+                if (selectedDests === 0) {
+                    errorMessage.textContent = 'Please select at least one destination.';
+                    return;
+                }
+
+                const ageNum = parseInt(age);
+                const travelersNum = parseInt(travelers);
+
+                let durationKey = duration === '1 - 30 Days' ? 'short' : duration === '1 - 6 Months' ? 'medium' : 'long';
+
+                let tripTypeKey = '';
+                if (tripType === 'Tourism / Adventure Sports') tripTypeKey = 'tourism-adventure';
+                else if (tripType === 'Digital Nomad / Remote Work') tripTypeKey = 'digital-nomad';
+                else if (tripType === 'Xtreme / Mountaineering') tripTypeKey = 'xtreme';
+                else if (tripType === 'Study / Exchange') tripTypeKey = 'study';
+                else if (tripType === 'Schengen Visa Required') tripTypeKey = 'schengen';
+
+                const destCount = selectedDests;
+
+                let plan1 = 'atlas-travel', plan2 = 'genki-traveler', notes = [];
+
+                if (ageNum > 69) {
+                    plan1 = 'genki-native';
+                    plan2 = 'world-nomads';
+                    notes.push('For travelers over 69, options may be limited. Consider consulting a specialist.');
+                }
+                if (tripTypeKey === 'digital-nomad' || durationKey === 'long') {
+                    plan1 = 'genki-traveler';
+                    plan2 = 'atlas-nomads';
+                }
+                if (tripTypeKey === 'tourism-adventure') {
+                    plan1 = 'world-nomads';
+                    plan2 = 'atlas-travel';
+                }
+                if (tripTypeKey === 'study') {
+                    plan1 = 'atlas-studentsecure';
+                    plan2 = 'genki-traveler';
+                }
+                if (tripTypeKey === 'xtreme') {
+                    plan1 = 'global-rescue';
+                    plan2 = 'world-nomads';
+                }
+                if (tripTypeKey === 'schengen' && travelersNum >= 5) plan2 = 'atlas-group';
+                if (travelersNum >= 5) {
+                    plan1 = 'atlas-group';
+                    plan2 = 'atlas-travel';
+                    notes.push('Group discount may apply for multiple travelers.');
+                }
+                if (durationKey === 'long' && destCount > 3) {
+                    plan1 = 'atlas-multitrip';
+                    plan2 = 'atlas-travel';
+                }
+                if (destList.includes('USA/Canada')) {
+                    notes.push('USA/Canada: Higher medical costs – ensure sufficient coverage limits.');
+                }
+
+                document.getElementById('plan1-card').innerHTML = `
+                    <h2>${plans[plan1].name}</h2>
+                    ${plans[plan1].highlights}
+                    <div class="why-section"><strong>Why this Travel Insurance?</strong> ${plans[plan1].why}</div>
+                    <a class="quote-btn" href="${plans[plan1].quote}" target="_blank" rel="noopener noreferrer">Get Quote</a>
+                `;
+                document.getElementById('plan2-card').innerHTML = `
+                    <h2>${plans[plan2].name}</h2>
+                    ${plans[plan2].highlights}
+                    <div class="why-section"><strong>Why this Travel Insurance?</strong> ${plans[plan2].why}</div>
+                    <a class="quote-btn" href="${plans[plan2].quote}" target="_blank" rel="noopener noreferrer">Get Quote</a>
+                `;
+                document.getElementById('notes').innerHTML = notes.map(n => `<p>${n}</p>`).join('');
+
+                form.style.display = 'none';
+                results.style.display = 'block';
+            });
+
+            resetBtn.addEventListener('click', () => {
+                form.reset();
+                destButtons.forEach(btn => btn.classList.remove('active'));
+                form.style.display = 'block';
+                results.style.display = 'none';
+                errorMessage.textContent = '';
+            });
+        });
+    </script>
+</body>
+</html>
