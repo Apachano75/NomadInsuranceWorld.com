@@ -63,7 +63,7 @@
         @media (max-width: 480px) {
             .glass { padding: 20px 8px; border-radius: 14px; }
         }
-        /* AVISO: mismo ancho que el cotizador */
+        /* AVISO: mismo ancho que el cotizador + resaltado */
         .geo-notice {
             background: rgba(0, 74, 173, 0.15);
             border-left: 4px solid var(--primary);
@@ -74,7 +74,7 @@
             font-size: 0.95rem;
             color: var(--text);
             width: 100%;
-            max-width: 1200px; /* mismo max-width que .container */
+            max-width: 1200px;
             box-sizing: border-box;
         }
         .geo-notice i {
@@ -82,12 +82,17 @@
             margin-right: 8px;
             font-size: 1.1em;
         }
+        .geo-notice .highlight {
+            font-weight: 700;
+            color: var(--accent);
+        }
         @media (max-width: 768px) {
             .geo-notice { padding: 14px 16px; font-size: 0.92rem; }
         }
         @media (max-width: 480px) {
             .geo-notice { padding: 12px 14px; font-size: 0.88rem; }
         }
+        /* Resto de estilos sin cambios */
         .form-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -260,11 +265,11 @@
                 Personalized Travel Insurance Recommendations
             </p>
 
-            <!-- TEXTO NUEVO CORREGIDO Y OPTIMIZADO -->
+            <!-- AVISO CON RESALTADO EN LA FRASE CLAVE -->
             <div class="geo-notice">
                 <i class="fas fa-info-circle"></i>
                 Did you receive a notice about purchase restrictions in your home country on the provider's quote page?<br>
-                We understand the confusion. Rest assured, you can still purchase the travel insurance. Simply click "CONTINUE" to proceed – the notice is just a regulatory formality and will not prevent you from getting the coverage you need.
+                We understand the confusion. Rest assured, you can still purchase the travel insurance. <span class="highlight">Simply click "CONTINUE" to proceed</span> – the notice is just a regulatory formality and will not prevent you from getting the coverage you need.
             </div>
         </header>
 
@@ -348,6 +353,7 @@
         </div>
     </div>
 
+    <!-- JavaScript sin cambios -->
     <script>
         const plans = {
             'atlas-travel': { name: 'Atlas Travel', highlights: '<ul><li>Up to $2M medical coverage (age-dependent)</li><li>$0–$5,000 deductible options</li><li>100% coinsurance after deductible</li><li>24/7 worldwide assistance</li><li>Air Doctor telehealth & clinic access</li><li>Optional crisis & AD&D upgrades</li></ul>', why: 'Ideal for most travelers: flexible, high limits, excellent value and meets Schengen requirements.', quote: 'https://quote.worldtrips.com/atlastravel/?referid=28225-001&language=en-US' },
