@@ -37,20 +37,16 @@
             align-items: center;
         }
         @media (max-width: 768px) {
-            body {
-                padding: 16px 0;
-            }
+            body { padding: 16px 0; }
         }
-
-        .container { 
-            max-width: 1200px; 
-            width: 100%; 
+        .container {
+            max-width: 1200px;
+            width: 100%;
             padding: 0 8px;
         }
         @media (min-width: 769px) {
             .container { padding: 0; }
         }
-
         .glass {
             background: rgba(255,255,255,0.12);
             backdrop-filter: blur(10px);
@@ -62,18 +58,36 @@
             width: 100%;
         }
         @media (max-width: 768px) {
-            .glass {
-                padding: 24px 12px;
-                border-radius: 16px;
-            }
+            .glass { padding: 24px 12px; border-radius: 16px; }
         }
         @media (max-width: 480px) {
-            .glass {
-                padding: 20px 8px;
-                border-radius: 14px;
+            .glass { padding: 20px 8px; border-radius: 14px; }
+        }
+        .geo-notice {
+            background: rgba(0, 74, 173, 0.15);
+            border-left: 4px solid var(--primary);
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 0.92rem;
+            color: var(--text);
+            max-width: 900px;
+        }
+        .geo-notice i {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+        .geo-notice em {
+            font-weight: 600;
+            font-style: italic;
+        }
+        @media (max-width: 480px) {
+            .geo-notice {
+                padding: 12px 14px;
+                font-size: 0.88rem;
             }
         }
-
         .form-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -81,19 +95,10 @@
             margin-bottom: 12px;
         }
         @media (max-width: 768px) {
-            .form-grid { 
-                grid-template-columns: 1fr; 
-                gap: 16px; 
-            }
+            .form-grid { grid-template-columns: 1fr; gap: 16px; }
         }
-
-        .field {
-            display: flex;
-            flex-direction: column;
-        }
-        .field.full-width {
-            grid-column: 1 / -1;
-        }
+        .field { display: flex; flex-direction: column; }
+        .field.full-width { grid-column: 1 / -1; }
         label {
             font-weight: 600;
             margin-bottom: 6px;
@@ -116,19 +121,13 @@
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(0,74,173,0.15);
         }
-
         .destinations {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
-        @media (max-width: 640px) {
-            .destinations { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 480px) {
-            .destinations { grid-template-columns: 1fr; }
-        }
-
+        @media (max-width: 640px) { .destinations { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .destinations { grid-template-columns: 1fr; } }
         .dest-toggle {
             padding: 14px 8px;
             border: 1px solid rgba(0,0,0,0.15);
@@ -147,7 +146,6 @@
             background: var(--accent);
             color: white;
         }
-
         .submit-wrapper {
             grid-column: 1 / -1;
             display: flex;
@@ -164,7 +162,6 @@
             font-weight: 600;
             cursor: pointer;
         }
-
         #error-message {
             grid-column: 1 / -1;
             color: #d63031;
@@ -173,7 +170,6 @@
             margin: 8px 0;
             font-size: 1rem;
         }
-
         #results { display: none; margin-top: 24px; }
         .motivator {
             text-align: center;
@@ -182,18 +178,14 @@
             margin-bottom: 20px;
             color: var(--gray);
         }
-
         .plans-container {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
         }
         @media (min-width: 769px) {
-            .plans-container {
-                grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            }
+            .plans-container { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
         }
-
         .plan-card {
             background: rgba(255,255,255,0.15);
             backdrop-filter: blur(8px);
@@ -208,12 +200,7 @@
             word-wrap: break-word;
             hyphens: auto;
         }
-        @media (max-width: 480px) {
-            .plan-card {
-                padding: 16px 8px;
-            }
-        }
-
+        @media (max-width: 480px) { .plan-card { padding: 16px 8px; } }
         .plan-card h2 {
             text-align: center;
             margin-bottom: 12px;
@@ -226,15 +213,8 @@
             margin: 12px 0;
             flex-grow: 1;
         }
-        .plan-card ul li {
-            margin-bottom: 6px;
-            line-height: 1.45;
-        }
-        .why-section {
-            margin: 14px 0;
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
+        .plan-card ul li { margin-bottom: 6px; line-height: 1.45; }
+        .why-section { margin: 14px 0; line-height: 1.5; font-size: 0.95rem; }
         .quote-btn {
             background: var(--primary);
             color: white;
@@ -248,13 +228,7 @@
             width: 100%;
             max-width: 280px;
         }
-
-        .notes p {
-            margin: 8px 0;
-            text-align: center;
-            font-size: 0.95rem;
-        }
-
+        .notes p { margin: 8px 0; text-align: center; font-size: 0.95rem; }
         .disclaimer {
             font-size: 0.72rem;
             color: white;
@@ -264,7 +238,6 @@
             line-height: 1.4;
             padding: 0 6px;
         }
-
         .hero-subtitle {
             font-size: 1.15rem;
             color: var(--primary);
@@ -272,21 +245,9 @@
             font-weight: 500;
             text-align: center;
         }
-
-        /* Ajuste del tamaño del título según el tamaño de pantalla */
-        h1 {
-            font-size: clamp(2rem, 6vw, 2.8rem);
-        }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: clamp(1.8rem, 5.5vw, 2.4rem);
-            }
-        }
-        @media (max-width: 480px) {
-            h1 {
-                font-size: clamp(1.6rem, 5vw, 2.2rem);
-            }
-        }
+        h1 { font-size: clamp(2rem, 6vw, 2.8rem); }
+        @media (max-width: 768px) { h1 { font-size: clamp(1.8rem, 5.5vw, 2.4rem); } }
+        @media (max-width: 480px) { h1 { font-size: clamp(1.6rem, 5vw, 2.2rem); } }
     </style>
 </head>
 <body>
@@ -298,6 +259,14 @@
             <p class="hero-subtitle">
                 Personalized Travel Insurance Recommendations
             </p>
+
+            <!-- TEXTO ACTUALIZADO EXACTAMENTE COMO PEDISTE -->
+            <div class="geo-notice">
+                <i class="fas fa-info-circle"></i>
+                <strong>Regulatory Note:</strong> Some providers may restrict purchases if you are currently in the EU, Canada, or Australia.<br>
+                <em>This is informational only – you can click "CONTINUE" and purchase normally.</em><br>
+                If you prefer: Buy after crossing a border, via in-flight Wi-Fi, or once in your destination country.
+            </div>
         </header>
 
         <div class="glass">
@@ -307,7 +276,6 @@
                         <label for="age"><i class="fas fa-user"></i> Your Age</label>
                         <input type="number" id="age" min="1" max="120" required placeholder="e.g. 32">
                     </div>
-
                     <div class="field">
                         <label for="pre-existing"><i class="fas fa-heartbeat"></i> Pre-existing Conditions?</label>
                         <select id="pre-existing">
@@ -316,7 +284,6 @@
                             <option>Yes</option>
                         </select>
                     </div>
-
                     <div class="field">
                         <label for="duration"><i class="fas fa-calendar-alt"></i> Trip Duration</label>
                         <select id="duration">
@@ -326,12 +293,10 @@
                             <option>6+ Months</option>
                         </select>
                     </div>
-
                     <div class="field">
                         <label for="travelers"><i class="fas fa-users"></i> Number of Travelers</label>
                         <input type="number" id="travelers" min="1" placeholder="e.g. 1 or 5">
                     </div>
-
                     <div class="field">
                         <label for="trip-type"><i class="fas fa-plane"></i> Trip Type</label>
                         <select id="trip-type">
@@ -344,7 +309,6 @@
                             <option>Schengen Visa Required</option>
                         </select>
                     </div>
-
                     <div class="field">
                         <label for="deductible"><i class="fas fa-hand-holding-usd"></i> Prefer Deductible?</label>
                         <select id="deductible">
@@ -353,7 +317,6 @@
                             <option>Yes</option>
                         </select>
                     </div>
-
                     <div class="field full-width">
                         <label><i class="fas fa-globe"></i> Destinations (select all that apply)</label>
                         <div class="destinations">
@@ -365,15 +328,12 @@
                             <button type="button" class="dest-toggle" data-dest="Africa">🌍 Africa</button>
                         </div>
                     </div>
-
                     <div id="error-message"></div>
-
                     <div class="submit-wrapper">
                         <button type="submit">Show My Plans</button>
                     </div>
                 </div>
             </form>
-
             <div id="results" class="glass">
                 <p class="motivator">Secure your dream trip today – click below and get the perfect coverage in minutes!</p>
                 <div class="plans-container">
@@ -421,6 +381,7 @@
                 let travelers = document.getElementById('travelers').value.trim() || '1';
                 let tripType = document.getElementById('trip-type').value || 'Tourism / Business';
                 let deductible = document.getElementById('deductible').value || 'No';
+
                 const selectedDests = document.querySelectorAll('.dest-toggle.active').length;
                 const destList = Array.from(document.querySelectorAll('.dest-toggle.active')).map(b => b.dataset.dest);
 
@@ -435,9 +396,7 @@
 
                 const ageNum = parseInt(age);
                 const travelersNum = parseInt(travelers);
-
                 let durationKey = duration === '1 - 30 Days' ? 'short' : duration === '1 - 6 Months' ? 'medium' : 'long';
-
                 let tripTypeKey = '';
                 if (tripType === 'Tourism / Adventure Sports') tripTypeKey = 'tourism-adventure';
                 else if (tripType === 'Digital Nomad / Remote Work') tripTypeKey = 'digital-nomad';
@@ -446,7 +405,6 @@
                 else if (tripType === 'Schengen Visa Required') tripTypeKey = 'schengen';
 
                 const destCount = selectedDests;
-
                 let plan1 = 'atlas-travel', plan2 = 'genki-traveler', notes = [];
 
                 if (ageNum > 69) {
