@@ -63,29 +63,30 @@
         @media (max-width: 480px) {
             .glass { padding: 20px 8px; border-radius: 14px; }
         }
-        /* AVISO: ahora mismo ancho que .glass */
+        /* AVISO: mismo ancho que el cotizador */
         .geo-notice {
             background: rgba(0, 74, 173, 0.15);
             border-left: 4px solid var(--primary);
             padding: 16px 20px;
-            border-radius: 12px;
-            margin: 24px 0;
+            border-radius: 8px;
+            margin: 20px auto;
             text-align: center;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             color: var(--text);
-            width: 100%; /* mismo ancho que el cotizador */
-            line-height: 1.55;
+            width: 100%;
+            max-width: 1200px; /* mismo max-width que .container */
+            box-sizing: border-box;
         }
         .geo-notice i {
             color: var(--primary);
             margin-right: 8px;
-            font-size: 1.2em;
+            font-size: 1.1em;
+        }
+        @media (max-width: 768px) {
+            .geo-notice { padding: 14px 16px; font-size: 0.92rem; }
         }
         @media (max-width: 480px) {
-            .geo-notice {
-                padding: 14px 16px;
-                font-size: 0.94rem;
-            }
+            .geo-notice { padding: 12px 14px; font-size: 0.88rem; }
         }
         .form-grid {
             display: grid;
@@ -259,10 +260,11 @@
                 Personalized Travel Insurance Recommendations
             </p>
 
-            <!-- NUEVO TEXTO + MISMO ANCHO QUE EL COTIZADOR -->
+            <!-- TEXTO NUEVO CORREGIDO Y OPTIMIZADO -->
             <div class="geo-notice">
                 <i class="fas fa-info-circle"></i>
-                Notice a message about purchase restrictions in your Home Country? We understand the confusion. Rest assured, you can still purchase our travel insurance. Click "continue" to proceed – the notice is simply a formality and won't prevent you from getting the coverage you need.
+                Did you receive a notice about purchase restrictions in your home country on the provider's quote page?<br>
+                We understand the confusion. Rest assured, you can still purchase the travel insurance. Simply click "CONTINUE" to proceed – the notice is just a regulatory formality and will not prevent you from getting the coverage you need.
             </div>
         </header>
 
