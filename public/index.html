@@ -263,14 +263,12 @@
             <p class="hero-subtitle">
                 Personalized Travel Insurance Recommendations
             </p>
-
             <!-- AVISO COMO AFIRMACIÓN DIRECTA -->
             <div class="geo-notice">
                 <i class="fas fa-info-circle"></i>
                 If you receive a notice about purchase restrictions in your home country on the provider's quote page, don't worry. We understand the confusion. Rest assured, you can still purchase the travel insurance. <span class="highlight">Simply click "CONTINUE" to proceed</span> – the notice is just a regulatory formality and will not prevent you from getting the coverage you need.
             </div>
         </header>
-
         <div class="glass">
             <form id="insurance-form">
                 <div class="form-grid">
@@ -350,43 +348,81 @@
             </div>
         </div>
     </div>
-
     <script>
         const plans = {
-            'atlas-travel': { name: 'Atlas Travel', highlights: '<ul><li>Up to $2M medical coverage (age-dependent)</li><li>$0–$5,000 deductible options</li><li>100% coinsurance after deductible</li><li>24/7 worldwide assistance</li><li>Air Doctor telehealth & clinic access</li><li>Optional crisis & AD&D upgrades</li></ul>', why: 'Ideal for most travelers: flexible, high limits, excellent value and meets Schengen requirements.', quote: 'https://quote.worldtrips.com/atlastravel/?referid=28225-001&language=en-US' },
-            'genki-traveler': { name: 'Genki Traveler', highlights: '<ul><li>€1M medical coverage worldwide</li><li>Monthly subscription 1–12 months</li><li>Covers most sports & adventures</li><li>24/7 direct billing assistance</li><li>Telemedicine included</li><li>€50 deductible (waived inpatient)</li></ul>', why: 'Perfect for digital nomads and long stays: monthly flexibility and strong sports coverage.', quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=traveler' },
-            'genki-native': { name: 'Genki Native', highlights: '<ul><li>Long-term worldwide health insurance</li><li>Covers chronic & pre-existing (Premium)</li><li>All sports included</li><li>Direct billing & 3-day claims</li><li>Dental, mental health, maternity (Premium)</li><li>Ages 0–55</li></ul>', why: 'Best for seniors or those with pre-existing conditions needing comprehensive long-term protection.', quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=native' },
-            'world-nomads': { name: 'World Nomads Explorer', highlights: '<ul><li>150+ adventure activities covered</li><li>Trip cancellation & interruption</li><li>Emergency medical & evacuation</li><li>Lost/stolen gear protection</li><li>24/7 assistance</li><li>Buy/extend while traveling</li></ul>', why: 'Top choice for adventure seekers: unmatched activity coverage and gear protection.', quote: 'https://www.anrdoezrs.net/click-101619860-15736546?url=https%3A%2F%2Fwww.worldnomads.com%2Ftravel-insurance%2Fquote' },
-            'atlas-nomads': { name: 'Atlas Nomads', highlights: '<ul><li>Up to 1 year continuous coverage</li><li>$0 deductible</li><li>Up to $250,000 limit</li><li>Monthly or full payment</li><li>Air Doctor integration</li><li>Digital nomad focused</li></ul>', why: 'Tailored for digital nomads: long-term with zero deductible and easy monthly payments.', quote: 'https://quote.worldtrips.com/nomad-insurance/Home?referid=28225-001&language=en-US' },
-            'global-rescue': { name: 'Global Rescue', highlights: '<ul><li>Medical & security evacuation</li><li>Field rescue anywhere</li><li>24/7 advisory & telehealth</li><li>No claims or deductibles</li><li>Elite operators (SEALs, Rangers)</li><li>20,000+ operations</li></ul>', why: 'Essential for extreme adventures: world-class evacuation and rescue services.', quote: 'https://partner.globalrescue.com/nomadinsurance/index.html' },
-            'atlas-studentsecure': { name: 'Atlas StudentSecure', highlights: '<ul><li>Meets J-1 visa requirements</li><li>Monthly or full payment</li><li>Recreational sports covered</li><li>Air Doctor telehealth</li><li>24/7 multilingual assistance</li><li>Up to $200,000 limit</li></ul>', why: 'Designed for international students: visa-compliant with strong academic coverage.', quote: 'https://quote.worldtrips.com/studentsecure/?referid=28225-001&language=en-US' },
-            'atlas-group': { name: 'Atlas Group', highlights: '<ul><li>10% discount for 5+ travelers</li><li>Same benefits as Atlas Travel</li><li>Up to $2M coverage</li><li>One group payment</li><li>Ideal for families & tours</li><li>24/7 assistance</li></ul>', why: 'Best for groups: 10% discount and streamlined coverage for families or tours.', quote: 'https://quote.worldtrips.com/group/?referid=28225-001' },
-            'atlas-multitrip': { name: 'Atlas MultiTrip', highlights: '<ul><li>Unlimited trips in 364 days</li><li>$1M per illness/injury</li><li>Each trip up to 30/45 days</li><li>Lost luggage & liability</li><li>Political evacuation</li><li>Cost-effective annual plan</li></ul>', why: 'Perfect for frequent travelers: one policy covers all trips in a year.', quote: 'https://quote.worldtrips.com/multitrip/?referid=28225-001&language=en-US' }
+            'atlas-travel': { 
+                name: 'Atlas Travel', 
+                highlights: '<ul><li>Up to $2M medical coverage (age-dependent, $50k-$2M options)</li><li>$0–$5,000 deductible choices</li><li>100% coinsurance after deductible</li><li>24/7 worldwide assistance with Air Doctor telehealth</li><li>Emergency dental, evacuation, interruption, equipaje perdido</li><li>Acute onset pre-existing for <80 (waiver if bought early)</li><li>Meets Schengen visa; customizable; COVID covered</li><li>Reviews: 4.4/5 Squaremouth; "Great value, solid coverage"</li><li>Exclusions: Pre-existing without waiver, extreme sports without rider, wars/pandemias conocidas, mascotas</li><li>Prices: From $0.80/day; e.g., $25 for short trip</li></ul>', 
+                why: 'Ideal for most travelers: flexible, high limits, excellent value and meets Schengen requirements. Customizable for last-minute trips.', 
+                quote: 'https://quote.worldtrips.com/atlastravel/?referid=28225-001&language=en-US' 
+            },
+            'genki-traveler': { 
+                name: 'Genki Traveler', 
+                highlights: '<ul><li>€1M+ medical coverage worldwide (unlimited for emergencies)</li><li>Monthly subscription 1–12 months, renewable online</li><li>Covers most sports/adventures (surfing, skiing, hiking; excludes dangerous like parachuting, base jumping, mountaineering >4k m)</li><li>24/7 direct billing assistance, telemedicine</li><li>€50 deductible (waived inpatient)</li><li>Emergency dental, accidents, infections; COVID if not pre-existing</li><li>Home country: 42 days/180 (accidents/emergencies only); USA/Canada: 7 days emergencies initial</li><li>Reviews: 4.1/5 Trustpilot (792); "Easy online, fast claims (4-7 weeks)"</li><li>Exclusions: Pre-existing, routine check-ups, maternity, alcohol/drugs, wars, electives, pro sports</li><li>Prices: From €35/month for young; varies by age/duration</li></ul>', 
+                why: 'Perfect for digital nomads and long stays: monthly flexibility, strong sports coverage, and renew while traveling.', 
+                quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=traveler' 
+            },
+            'genki-native': { 
+                name: 'Genki Native', 
+                highlights: '<ul><li>Long-term worldwide health insurance (no country exclusions)</li><li>Covers chronic/pre-existing after review/underwriting (Premium: preventive, dental €1k, vision, maternity, mental health, alternative medicine)</li><li>All sports included (minor exclusions >4k m hiking)</li><li>Direct billing, 3-day claims, telehealth</li><li>Home country: 30 days/year (€250k limit, emergencies/new illnesses)</li><li>USA/Canada: Full with add-on; pregnancy complications after 10 months (no baby hospital)</li><li>Ages: 0-55 at signup, renewable lifetime</li><li>Reviews: 4.1/5; "Covers chronic, great for expats; some claim waits"</li><li>Exclusions: Recent treatments (last 6 months), wars, electives, excesses in home country</li><li>Prices: €50/month Basic; €220+ Premium</li></ul>', 
+                why: 'Best for seniors or those with pre-existing conditions needing comprehensive long-term protection. Deep like local insurance for +6 months abroad.', 
+                quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=native' 
+            },
+            'world-nomads': { 
+                name: 'World Nomads Explorer', 
+                highlights: '<ul><li>150+ adventure activities (skiing, diving, bungee; excludes pro/illegal)</li><li>Trip cancellation/interruption up to $10k; medical/evacuation $500k</li><li>Lost/stolen gear $3k (Premium); delays, natural disasters</li><li>24/7 assistance multilingüe; buy/extend while traveling</li><li>Donation to locals; COVID if not pre-existing</li><li>Ages: Up to 69 (partners for older)</li><li>Reviews: 4.2/5 Trustpilot; "Saved my trip with injury claim; quick payouts"</li><li>Exclusions: Pre-existing without waiver, no-travel zones, change of mind, illegals</li><li>Prices: $100 for 2-week adventure trip</li></ul>', 
+                why: 'Top choice for adventure seekers: unmatched activity coverage, gear protection, and ethical donations.', 
+                quote: 'https://www.anrdoezrs.net/click-101619860-15736546?url=https%3A%2F%2Fwww.worldnomads.com%2Ftravel-insurance%2Fquote' 
+            },
+            'atlas-nomads': { 
+                name: 'Atlas Nomads', 
+                highlights: '<ul><li>Up to 1 year continuous coverage; $250k limit (<64), $100k (65-69)</li><li>$0 deductible; 100% eligible expenses</li><li>Medical (illness/injury), evacuation, interruption, death accidental</li><li>Air Doctor integration; $500 visa denial benefit (USA B-2)</li><li>Acute onset pre-existing (<80); COVID covered</li><li>Reviews: 3/5 Trustpilot; "Good for nomads, but claim delays"</li><li>Exclusions: Pre-existing without acute, extreme sports without rider, wars/known events, mascotas</li><li>Prices: From $1.50/day; $45/month for 30yo</li><li>Not available in NY, MD, WA, Canada, Australia at purchase</li></ul>', 
+                why: 'Tailored for digital nomads: long-term with zero deductible, easy monthly payments, and remote work support.', 
+                quote: 'https://quote.worldtrips.com/nomad-insurance/Home?referid=28225-001&language=en-US' 
+            },
+            'global-rescue': { 
+                name: 'Global Rescue', 
+                highlights: '<ul><li>Medical/security evacuation from injury point; field rescue anywhere</li><li>24/7 advisory, telehealth, intelligence; no deductibles/claims</li><li>Elite operators (ex-military); 20k+ operations; COVID covered</li><li>Interruption 150%; delays $1k; cancellation $100k (IMG add-on)</li><li>No activity exclusions; home hospital choice</li><li>Ages: No strict limit</li><li>Reviews: 4/5 Trustpilot; "Rapid response, saved lives"</li><li>Exclusions: Pre-existing planned, infectious (some), pregnancy >2nd trimester, self-harm, medical tourism</li><li>Prices: $139+ membership; IMG add-on extra</li></ul>', 
+                why: 'Essential for extreme adventures: world-class evacuation and rescue services with no activity limits.', 
+                quote: 'https://partner.globalrescue.com/nomadinsurance/index.html' 
+            },
+            'atlas-studentsecure': { 
+                name: 'Atlas StudentSecure', 
+                highlights: '<ul><li>4 levels (Elite $5M, Select $1M, Budget $500k, Smart $200k)</li><li>Meets J-1/F-1 visa; monthly/full pay</li><li>Recreational sports; mental health limited; maternity (high levels)</li><li>Air Doctor telehealth; 24/7 assistance</li><li>Acute onset pre-existing (wait 6-12 months)</li><li>Vaccines, terrorism, interruption</li><li>Ages: Up to 65+ (focus full-time students)</li><li>Reviews: 4/5; "Visa-compliant, affordable"</li><li>Exclusions: Pre-existing initial, extremes without rider, known events</li><li>Prices: $30/month Budget for young</li></ul>', 
+                why: 'Designed for international students: visa-compliant with strong academic coverage and flexible payments.', 
+                quote: 'https://quote.worldtrips.com/studentsecure/?referid=28225-001&language=en-US' 
+            },
+            'atlas-group': { 
+                name: 'Atlas Group', 
+                highlights: '<ul><li>10-15% discount for 5+ travelers</li><li>Same as Atlas Travel: Up to $2M medical, evacuation, assistance</li><li>One group payment; ideal families/tours/missions</li><li>Acute onset pre-existing (<80)</li><li>Ages: Up to 80+ (reduced >65)</li><li>Reviews: Positive on savings; "Great for teams"</li><li>Exclusions: Same as Atlas; no mascotas, pre-existing without acute</li><li>Prices: $1/day per person group</li><li>Not in NY, MD, WA, Canada, Australia at purchase</li></ul>', 
+                why: 'Best for groups: 10% discount and streamlined coverage for families or tours.', 
+                quote: 'https://quote.worldtrips.com/group/?referid=28225-001' 
+            },
+            'atlas-multitrip': { 
+                name: 'Atlas MultiTrip', 
+                highlights: '<ul><li>Unlimited trips in 364 days; $1M per illness/injury</li><li>Each trip 30/45 days; lost luggage, liability</li><li>Political evacuation; medical, interruption, delay</li><li>Acute onset pre-existing (<70); waiver possible</li><li>Ages: Up to 80+ (reduced >65)</li><li>Reviews: High; "Perfect for frequent trips"</li><li>Exclusions: USA trips, pre-existing, extremes</li><li>Prices: $193/year for $1M</li><li>Not in certain states/countries at purchase</li></ul>', 
+                why: 'Perfect for frequent travelers: one policy covers all trips in a year with cost-effective annual plan.' , 
+                quote: 'https://quote.worldtrips.com/multitrip/?referid=28225-001&language=en-US' 
+            }
         };
-
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('insurance-form');
             const results = document.getElementById('results');
             const errorMessage = document.getElementById('error-message');
             const resetBtn = document.getElementById('reset');
             const destButtons = document.querySelectorAll('.dest-toggle');
-
             destButtons.forEach(btn => btn.addEventListener('click', () => btn.classList.toggle('active')));
-
             form.addEventListener('submit', e => {
                 e.preventDefault();
                 errorMessage.textContent = '';
-
                 let age = document.getElementById('age').value.trim();
                 let preExisting = document.getElementById('pre-existing').value || 'No';
                 let duration = document.getElementById('duration').value || '1 - 30 Days';
                 let travelers = document.getElementById('travelers').value.trim() || '1';
                 let tripType = document.getElementById('trip-type').value || 'Tourism / Business';
                 let deductible = document.getElementById('deductible').value || 'No';
-
                 const selectedDests = document.querySelectorAll('.dest-toggle.active').length;
                 const destList = Array.from(document.querySelectorAll('.dest-toggle.active')).map(b => b.dataset.dest);
-
                 if (!age) {
                     errorMessage.textContent = 'Please enter your age.';
                     return;
@@ -395,7 +431,6 @@
                     errorMessage.textContent = 'Please select at least one destination.';
                     return;
                 }
-
                 const ageNum = parseInt(age);
                 const travelersNum = parseInt(travelers);
                 let durationKey = duration === '1 - 30 Days' ? 'short' : duration === '1 - 6 Months' ? 'medium' : 'long';
@@ -405,45 +440,60 @@
                 else if (tripType === 'Xtreme / Mountaineering') tripTypeKey = 'xtreme';
                 else if (tripType === 'Study / Exchange') tripTypeKey = 'study';
                 else if (tripType === 'Schengen Visa Required') tripTypeKey = 'schengen';
-
                 const destCount = selectedDests;
                 let plan1 = 'atlas-travel', plan2 = 'genki-traveler', notes = [];
-
                 if (ageNum > 69) {
-                    plan1 = 'genki-native';
-                    plan2 = 'world-nomads';
-                    notes.push('For travelers over 69, options may be limited. Consider consulting a specialist.');
+                    plan1 = 'world-nomads';
+                    plan2 = 'global-rescue';
+                    notes.push('Options limited for ages over 69; consult specialist for full details.');
+                } else if (ageNum > 55) {
+                    notes.push('Genki Native not available for new signups over 55; renewable if started earlier.');
                 }
-                if (tripTypeKey === 'digital-nomad' || durationKey === 'long') {
+                if (preExisting === 'Yes') {
+                    plan1 = 'genki-native';
+                    plan2 = 'atlas-travel';
+                    notes.push('Pre-existing: Genki Native may cover after review; Atlas covers acute onset only.');
+                }
+                if (durationKey === 'long' || tripTypeKey === 'digital-nomad') {
                     plan1 = 'genki-traveler';
                     plan2 = 'atlas-nomads';
+                    if (durationKey === 'long') notes.push('Long-term: Consider renewability; Genki auto-renews monthly.');
                 }
                 if (tripTypeKey === 'tourism-adventure') {
                     plan1 = 'world-nomads';
                     plan2 = 'atlas-travel';
                 }
+                if (tripTypeKey === 'xtreme') {
+                    plan1 = 'global-rescue';
+                    plan2 = 'world-nomads';
+                    notes.push('Xtreme: No activity exclusions in Global Rescue.');
+                }
                 if (tripTypeKey === 'study') {
                     plan1 = 'atlas-studentsecure';
                     plan2 = 'genki-traveler';
                 }
-                if (tripTypeKey === 'xtreme') {
-                    plan1 = 'global-rescue';
-                    plan2 = 'world-nomads';
+                if (tripTypeKey === 'schengen') {
+                    plan1 = 'atlas-travel';
+                    plan2 = 'genki-traveler';
+                    notes.push('Schengen: Atlas meets requirements; verify visa letter.');
                 }
-                if (tripTypeKey === 'schengen' && travelersNum >= 5) plan2 = 'atlas-group';
                 if (travelersNum >= 5) {
                     plan1 = 'atlas-group';
-                    plan2 = 'atlas-travel';
-                    notes.push('Group discount may apply for multiple travelers.');
+                    plan2 = plan1 === 'atlas-group' ? 'atlas-travel' : plan1;
+                    notes.push('Group (5+): 10-15% discount with Atlas Group.');
                 }
                 if (durationKey === 'long' && destCount > 3) {
                     plan1 = 'atlas-multitrip';
                     plan2 = 'atlas-travel';
                 }
-                if (destList.includes('USA/Canada')) {
-                    notes.push('USA/Canada: Higher medical costs – ensure sufficient coverage limits.');
+                if (deductible === 'Yes') {
+                    notes.push('Deductible preferred: Atlas plans offer $0-$5k options; Genki has €50 (waivable).');
+                } else if (deductible === 'No') {
+                    notes.push('No deductible: Genki/Atlas Nomads offer $0; good for frequent claims.');
                 }
-
+                if (destList.includes('USA/Canada')) {
+                    notes.push('USA/Canada: Higher costs; limited coverage (e.g., Genki: 7 days emergencies only). Consider add-ons.');
+                }
                 document.getElementById('plan1-card').innerHTML = `
                     <h2>${plans[plan1].name}</h2>
                     ${plans[plan1].highlights}
@@ -457,11 +507,9 @@
                     <a class="quote-btn" href="${plans[plan2].quote}" target="_blank" rel="noopener noreferrer">Get Quote</a>
                 `;
                 document.getElementById('notes').innerHTML = notes.map(n => `<p>${n}</p>`).join('');
-
                 form.style.display = 'none';
                 results.style.display = 'block';
             });
-
             resetBtn.addEventListener('click', () => {
                 form.reset();
                 destButtons.forEach(btn => btn.classList.remove('active'));
