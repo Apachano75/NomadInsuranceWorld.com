@@ -376,7 +376,7 @@
             },
             'atlas-nomads': { 
                 name: 'Atlas Nomads', 
-                highlights: '<ul><li>1 year coverage; $250k (<64), $100k (65-69)</li><li>$0 deductible; 100% expenses</li><li>Medical, evacuation, interruption; telehealth</li><li>Acute pre-existing (<80); COVID covered</li><li>Reviews: 3/5; "Nomad-friendly"</li><li>Exclusions: Pre-existing, extremes, wars</li><li>Prices: From $1.50/day</li><li>Not in NY/MD/WA/Canada/Australia</li></ul>', 
+                highlights: '<ul><li>1 year coverage; $250k (<64), $100k (65-69)</li><li>$0 deductible; 100% expenses</li><li>Medical, evacuation, interruption; telehealth</li><li>Acute pre-existing (<80); COVID covered</li><li>Reviews: 3/5; "Nomad-friendly"</li><li>Exclusions: Pre-existing, extremes, wars</li><li>Prices: From $1.50/day</li></ul>', 
                 why: 'Suited for nomads with zero deductible and monthly ease.', 
                 quote: 'https://quote.worldtrips.com/nomad-insurance/Home?referid=28225-001&language=en-US' 
             },
@@ -394,7 +394,7 @@
             },
             'atlas-group': { 
                 name: 'Atlas Group', 
-                highlights: '<ul><li>10-15% discount for 5+</li><li>Up to $2M medical, evacuation</li><li>Group payment; acute pre-existing (<80)</li><li>Ages up to 80+</li><li>Reviews: "Great for teams"</li><li>Exclusions: Pre-existing, no pets</li><li>Prices: $1/day per person</li><li>Not in NY/MD/WA/Canada/Australia</li></ul>', 
+                highlights: '<ul><li>10-15% discount for 5+</li><li>Up to $2M medical, evacuation</li><li>Group payment; acute pre-existing (<80)</li><li>Ages up to 80+</li><li>Reviews: "Great for teams"</li><li>Exclusions: Pre-existing, no pets</li><li>Prices: $1/day per person</li></ul>', 
                 why: 'Cost-saving for groups with streamlined family/tour coverage.', 
                 quote: 'https://quote.worldtrips.com/group/?referid=28225-001' 
             },
@@ -502,13 +502,13 @@
                     <h2>${plans[plan1].name}</h2>
                     ${plans[plan1].highlights}
                     <div class="why-section"><strong>Why this Travel Insurance?</strong> ${plans[plan1].why}</div>
-                    <a class="quote-btn" href="${plans[plan1].quote}" target="_blank" rel="noopener noreferrer">Get Quote</a>
+                    <a class="quote-btn" href="${plans[plan1].quote}" target="_blank" rel="noopener noreferrer">Get FREE Quote</a>
                 `;
                 document.getElementById('plan2-card').innerHTML = `
                     <h2>${plans[plan2].name}</h2>
                     ${plans[plan2].highlights}
                     <div class="why-section"><strong>Why this Travel Insurance?</strong> ${plans[plan2].why}</div>
-                    <a class="quote-btn" href="${plans[plan2].quote}" target="_blank" rel="noopener noreferrer">Get Quote</a>
+                    <a class="quote-btn" href="${plans[plan2].quote}" target="_blank" rel="noopener noreferrer">Get FREE Quote</a>
                 `;
                 document.getElementById('notes').innerHTML = notes.map(n => `<p>${n}</p>`).join('');
                 form.style.display = 'none';
