@@ -95,11 +95,11 @@
         .form-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px 32px; /* Doble del original 20px 16px */
+            gap: 20px 16px; /* Reduced for compactness */
             margin-bottom: 12px;
         }
         @media (max-width: 768px) {
-            .form-grid { grid-template-columns: 1fr; gap: 32px 24px; /* Ajuste proporcional para mobile */ }
+            .form-grid { grid-template-columns: 1fr; gap: 16px 12px; /* Adjusted for mobile */ }
         }
         .field { display: flex; flex-direction: column; }
         .field.full-width { grid-column: 1 / -1; }
@@ -185,7 +185,7 @@
         .plans-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 4px; /* Reducido al mínimo viable desde 20px */
+            gap: 12px; /* Slightly increased for readability */
         }
         @media (min-width: 769px) {
             .plans-container { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
@@ -266,7 +266,7 @@
             <!-- AVISO COMO AFIRMACIÓN DIRECTA -->
             <div class="geo-notice">
                 <i class="fas fa-info-circle"></i>
-                If you receive a notice about purchase restrictions in your home country on the provider's quote page, don't worry. We understand the confusion. Rest assured, you can still purchase the travel insurance. <span class="highlight">Simply click "CONTINUE" to proceed</span> – the notice is just a regulatory formality and will not prevent you from getting the coverage you need.
+                If you see a purchase restriction notice for your home country, don't worry. <span class="highlight">Click "CONTINUE" to proceed</span> – it's regulatory only and won't block your coverage.
             </div>
         </header>
         <div class="glass">
@@ -352,56 +352,56 @@
         const plans = {
             'atlas-travel': { 
                 name: 'Atlas Travel', 
-                highlights: '<ul><li>Up to $2M medical coverage (age-dependent, $50k-$2M options)</li><li>$0–$5,000 deductible choices</li><li>100% coinsurance after deductible</li><li>24/7 worldwide assistance with Air Doctor telehealth</li><li>Emergency dental, evacuation, interruption, equipaje perdido</li><li>Acute onset pre-existing for <80 (waiver if bought early)</li><li>Meets Schengen visa; customizable; COVID covered</li><li>Reviews: 4.4/5 Squaremouth; "Great value, solid coverage"</li><li>Exclusions: Pre-existing without waiver, extreme sports without rider, wars/pandemias conocidas, mascotas</li><li>Prices: From $0.80/day; e.g., $25 for short trip</li></ul>', 
-                why: 'Ideal for most travelers: flexible, high limits, excellent value and meets Schengen requirements. Customizable for last-minute trips.', 
+                highlights: '<ul><li>Up to $2M medical ($50k-$2M options)</li><li>$0–$5k deductible; 100% coinsurance</li><li>24/7 assistance, telehealth, evacuation, dental</li><li>Acute pre-existing (<80); Schengen compliant; COVID covered</li><li>Reviews: 4.4/5; "Great value"</li><li>Exclusions: Pre-existing without waiver, extreme sports, wars</li><li>Prices: From $0.80/day</li></ul>', 
+                why: 'Flexible and high-value for most travelers; customizable and meets Schengen needs.', 
                 quote: 'https://quote.worldtrips.com/atlastravel/?referid=28225-001&language=en-US' 
             },
             'genki-traveler': { 
                 name: 'Genki Traveler', 
-                highlights: '<ul><li>€1M+ medical coverage worldwide (unlimited for emergencies)</li><li>Monthly subscription 1–12 months, renewable online</li><li>Covers most sports/adventures (surfing, skiing, hiking; excludes dangerous like parachuting, base jumping, mountaineering >4k m)</li><li>24/7 direct billing assistance, telemedicine</li><li>€50 deductible (waived inpatient)</li><li>Emergency dental, accidents, infections; COVID if not pre-existing</li><li>Home country: 42 days/180 (accidents/emergencies only); USA/Canada: 7 days emergencies initial</li><li>Reviews: 4.1/5 Trustpilot (792); "Easy online, fast claims (4-7 weeks)"</li><li>Exclusions: Pre-existing, routine check-ups, maternity, alcohol/drugs, wars, electives, pro sports</li><li>Prices: From €35/month for young; varies by age/duration</li></ul>', 
-                why: 'Perfect for digital nomads and long stays: monthly flexibility, strong sports coverage, and renew while traveling.', 
+                highlights: '<ul><li>€1M+ medical; unlimited emergencies</li><li>Monthly 1–12 months, renewable</li><li>Covers sports (surfing, skiing; excludes extremes >4k m)</li><li>24/7 billing, telehealth; €50 deductible (waived inpatient)</li><li>Home: 42 days/180 emergencies; USA/Canada: 7 days</li><li>Reviews: 4.1/5; "Easy claims"</li><li>Exclusions: Pre-existing, routine, maternity, wars</li><li>Prices: From €35/month</li></ul>', 
+                why: 'Great for nomads and long trips with monthly flexibility and sports coverage.', 
                 quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=traveler' 
             },
             'genki-native': { 
                 name: 'Genki Native', 
-                highlights: '<ul><li>Long-term worldwide health insurance (no country exclusions)</li><li>Covers chronic/pre-existing after review/underwriting (Premium: preventive, dental €1k, vision, maternity, mental health, alternative medicine)</li><li>All sports included (minor exclusions >4k m hiking)</li><li>Direct billing, 3-day claims, telehealth</li><li>Home country: 30 days/year (€250k limit, emergencies/new illnesses)</li><li>USA/Canada: Full with add-on; pregnancy complications after 10 months (no baby hospital)</li><li>Ages: 0-55 at signup, renewable lifetime</li><li>Reviews: 4.1/5; "Covers chronic, great for expats; some claim waits"</li><li>Exclusions: Recent treatments (last 6 months), wars, electives, excesses in home country</li><li>Prices: €50/month Basic; €220+ Premium</li></ul>', 
-                why: 'Best for seniors or those with pre-existing conditions needing comprehensive long-term protection. Deep like local insurance for +6 months abroad.', 
+                highlights: '<ul><li>Long-term worldwide health; no exclusions</li><li>Covers pre-existing after review (Premium: dental €1k, mental health)</li><li>All sports included (minor exclusions)</li><li>Direct billing, telehealth; home: 30 days/year</li><li>USA/Canada add-on; ages 0-55 signup</li><li>Reviews: 4.1/5; "Good for expats"</li><li>Exclusions: Recent treatments, wars, electives</li><li>Prices: €50/month Basic; €220+ Premium</li></ul>', 
+                why: 'Comprehensive for pre-existing or long-term; like local insurance for 6+ months.', 
                 quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=native' 
             },
             'world-nomads': { 
                 name: 'World Nomads Explorer', 
-                highlights: '<ul><li>150+ adventure activities (skiing, diving, bungee; excludes pro/illegal)</li><li>Trip cancellation/interruption up to $10k; medical/evacuation $500k</li><li>Lost/stolen gear $3k (Premium); delays, natural disasters</li><li>24/7 assistance multilingüe; buy/extend while traveling</li><li>Donation to locals; COVID if not pre-existing</li><li>Ages: Up to 69 (partners for older)</li><li>Reviews: 4.2/5 Trustpilot; "Saved my trip with injury claim; quick payouts"</li><li>Exclusions: Pre-existing without waiver, no-travel zones, change of mind, illegals</li><li>Prices: $100 for 2-week adventure trip</li></ul>', 
-                why: 'Top choice for adventure seekers: unmatched activity coverage, gear protection, and ethical donations.', 
+                highlights: '<ul><li>150+ adventures (skiing, diving; excludes pro)</li><li>$500k medical/evacuation; $10k cancellation</li><li>Gear $3k; delays, disasters; 24/7 assistance</li><li>Buy/extend traveling; COVID covered</li><li>Ages up to 69</li><li>Reviews: 4.2/5; "Quick claims"</li><li>Exclusions: Pre-existing, no-travel zones</li><li>Prices: $100/2-week trip</li></ul>', 
+                why: 'Best for adventures with broad activity and gear protection.', 
                 quote: 'https://www.anrdoezrs.net/click-101619860-15736546?url=https%3A%2F%2Fwww.worldnomads.com%2Ftravel-insurance%2Fquote' 
             },
             'atlas-nomads': { 
                 name: 'Atlas Nomads', 
-                highlights: '<ul><li>Up to 1 year continuous coverage; $250k limit (<64), $100k (65-69)</li><li>$0 deductible; 100% eligible expenses</li><li>Medical (illness/injury), evacuation, interruption, death accidental</li><li>Air Doctor integration; $500 visa denial benefit (USA B-2)</li><li>Acute onset pre-existing (<80); COVID covered</li><li>Reviews: 3/5 Trustpilot; "Good for nomads, but claim delays"</li><li>Exclusions: Pre-existing without acute, extreme sports without rider, wars/known events, mascotas</li><li>Prices: From $1.50/day; $45/month for 30yo</li><li>Not available in NY, MD, WA, Canada, Australia at purchase</li></ul>', 
-                why: 'Tailored for digital nomads: long-term with zero deductible, easy monthly payments, and remote work support.', 
+                highlights: '<ul><li>1 year coverage; $250k (<64), $100k (65-69)</li><li>$0 deductible; 100% expenses</li><li>Medical, evacuation, interruption; telehealth</li><li>Acute pre-existing (<80); COVID covered</li><li>Reviews: 3/5; "Nomad-friendly"</li><li>Exclusions: Pre-existing, extremes, wars</li><li>Prices: From $1.50/day</li><li>Not in NY/MD/WA/Canada/Australia</li></ul>', 
+                why: 'Suited for nomads with zero deductible and monthly ease.', 
                 quote: 'https://quote.worldtrips.com/nomad-insurance/Home?referid=28225-001&language=en-US' 
             },
             'global-rescue': { 
                 name: 'Global Rescue', 
-                highlights: '<ul><li>Medical/security evacuation from injury point; field rescue anywhere</li><li>24/7 advisory, telehealth, intelligence; no deductibles/claims</li><li>Elite operators (ex-military); 20k+ operations; COVID covered</li><li>Interruption 150%; delays $1k; cancellation $100k (IMG add-on)</li><li>No activity exclusions; home hospital choice</li><li>Ages: No strict limit</li><li>Reviews: 4/5 Trustpilot; "Rapid response, saved lives"</li><li>Exclusions: Pre-existing planned, infectious (some), pregnancy >2nd trimester, self-harm, medical tourism</li><li>Prices: $139+ membership; IMG add-on extra</li></ul>', 
-                why: 'Essential for extreme adventures: world-class evacuation and rescue services with no activity limits.', 
+                highlights: '<ul><li>Evacuation/rescue worldwide; no deductibles</li><li>24/7 advisory, telehealth; no activity exclusions</li><li>Interruption 150%; cancellation $100k add-on</li><li>COVID covered; home hospital choice</li><li>Reviews: 4/5; "Rapid response"</li><li>Exclusions: Pre-existing planned, pregnancy >2nd trimester</li><li>Prices: $139+ membership</li></ul>', 
+                why: 'Top for extremes with elite rescue and no limits.', 
                 quote: 'https://partner.globalrescue.com/nomadinsurance/index.html' 
             },
             'atlas-studentsecure': { 
                 name: 'Atlas StudentSecure', 
-                highlights: '<ul><li>4 levels (Elite $5M, Select $1M, Budget $500k, Smart $200k)</li><li>Meets J-1/F-1 visa; monthly/full pay</li><li>Recreational sports; mental health limited; maternity (high levels)</li><li>Air Doctor telehealth; 24/7 assistance</li><li>Acute onset pre-existing (wait 6-12 months)</li><li>Vaccines, terrorism, interruption</li><li>Ages: Up to 65+ (focus full-time students)</li><li>Reviews: 4/5; "Visa-compliant, affordable"</li><li>Exclusions: Pre-existing initial, extremes without rider, known events</li><li>Prices: $30/month Budget for young</li></ul>', 
-                why: 'Designed for international students: visa-compliant with strong academic coverage and flexible payments.', 
+                highlights: '<ul><li>4 levels ($200k-$5M); J-1/F-1 compliant</li><li>Rec sports; mental health; maternity (high)</li><li>Telehealth; acute pre-existing (6-12 months)</li><li>Vaccines, terrorism, interruption</li><li>Ages up to 65+</li><li>Reviews: 4/5; "Affordable visa"</li><li>Exclusions: Pre-existing initial, extremes</li><li>Prices: $30/month Budget</li></ul>', 
+                why: 'Ideal for students with visa compliance and flexible pay.', 
                 quote: 'https://quote.worldtrips.com/studentsecure/?referid=28225-001&language=en-US' 
             },
             'atlas-group': { 
                 name: 'Atlas Group', 
-                highlights: '<ul><li>10-15% discount for 5+ travelers</li><li>Same as Atlas Travel: Up to $2M medical, evacuation, assistance</li><li>One group payment; ideal families/tours/missions</li><li>Acute onset pre-existing (<80)</li><li>Ages: Up to 80+ (reduced >65)</li><li>Reviews: Positive on savings; "Great for teams"</li><li>Exclusions: Same as Atlas; no mascotas, pre-existing without acute</li><li>Prices: $1/day per person group</li><li>Not in NY, MD, WA, Canada, Australia at purchase</li></ul>', 
-                why: 'Best for groups: 10% discount and streamlined coverage for families or tours.', 
+                highlights: '<ul><li>10-15% discount for 5+</li><li>Up to $2M medical, evacuation</li><li>Group payment; acute pre-existing (<80)</li><li>Ages up to 80+</li><li>Reviews: "Great for teams"</li><li>Exclusions: Pre-existing, no pets</li><li>Prices: $1/day per person</li><li>Not in NY/MD/WA/Canada/Australia</li></ul>', 
+                why: 'Cost-saving for groups with streamlined family/tour coverage.', 
                 quote: 'https://quote.worldtrips.com/group/?referid=28225-001' 
             },
             'atlas-multitrip': { 
                 name: 'Atlas MultiTrip', 
-                highlights: '<ul><li>Unlimited trips in 364 days; $1M per illness/injury</li><li>Each trip 30/45 days; lost luggage, liability</li><li>Political evacuation; medical, interruption, delay</li><li>Acute onset pre-existing (<70); waiver possible</li><li>Ages: Up to 80+ (reduced >65)</li><li>Reviews: High; "Perfect for frequent trips"</li><li>Exclusions: USA trips, pre-existing, extremes</li><li>Prices: $193/year for $1M</li><li>Not in certain states/countries at purchase</li></ul>', 
-                why: 'Perfect for frequent travelers: one policy covers all trips in a year with cost-effective annual plan.' , 
+                highlights: '<ul><li>Unlimited trips/364 days; $1M per</li><li>Trips 30/45 days; luggage, liability</li><li>Evacuation; acute pre-existing (<70)</li><li>Ages up to 80+</li><li>Reviews: "Frequent trips"</li><li>Exclusions: USA trips, pre-existing, extremes</li><li>Prices: $193/year</li><li>Not in certain states</li></ul>', 
+                why: 'Efficient annual plan for frequent travelers covering multiple trips.', 
                 quote: 'https://quote.worldtrips.com/multitrip/?referid=28225-001&language=en-US' 
             }
         };
@@ -493,6 +493,10 @@
                 }
                 if (destList.includes('USA/Canada')) {
                     notes.push('USA/Canada: Higher costs; limited coverage (e.g., Genki: 7 days emergencies only). Consider add-ons.');
+                }
+                // Added: Specific reduced note for Canada, Australia, EU
+                if (destList.includes('USA/Canada') || destList.includes('Europe') || destList.includes('Oceania')) {
+                    notes.push('If purchase restricted in home country (e.g., Canada, Australia, EU), click "CONTINUE" – it\'s regulatory only; coverage still available.');
                 }
                 document.getElementById('plan1-card').innerHTML = `
                     <h2>${plans[plan1].name}</h2>
