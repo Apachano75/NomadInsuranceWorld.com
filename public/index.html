@@ -15,7 +15,7 @@
         })(window, document, "clarity", "script", "jwnh7dhs8s");
     </script>
     <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8fj0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
             --primary: #004aad;
@@ -29,7 +29,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             color: var(--text);
             line-height: 1.6;
-            padding: 32px 20px;
+            padding: 32px 0;
             min-height: 100vh;
             background: transparent;
             display: flex;
@@ -42,26 +42,23 @@
         .container {
             max-width: 1200px;
             width: 100%;
-            padding: 0 8px;
-        }
-        @media (min-width: 769px) {
-            .container { padding: 0; }
+            padding: 0;
         }
         .glass {
             background: rgba(255,255,255,0.12);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 32px 24px;
+            padding: 32px 16px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             border: 1px solid rgba(255,255,255,0.1);
             width: 100%;
         }
         @media (max-width: 768px) {
-            .glass { padding: 24px 12px; border-radius: 16px; }
+            .glass { padding: 24px 8px; border-radius: 16px; }
         }
         @media (max-width: 480px) {
-            .glass { padding: 20px 8px; border-radius: 14px; }
+            .glass { padding: 20px 4px; border-radius: 14px; }
         }
         /* AVISO: afirmación directa + resaltado azul */
         .geo-notice {
@@ -95,13 +92,13 @@
         .form-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px 16px; /* Reduced for compactness */
+            gap: 16px 12px;
             margin-bottom: 12px;
         }
         @media (max-width: 768px) {
-            .form-grid { grid-template-columns: 1fr; gap: 16px 12px; /* Adjusted for mobile */ }
+            .form-grid { grid-template-columns: 1fr; gap: 12px 8px; }
         }
-        .field { display: flex; flex-direction: column; }
+        .field { display: flex; flex-direction: column; width: 100%; }
         .field.full-width { grid-column: 1 / -1; }
         label {
             font-weight: 600;
@@ -119,6 +116,7 @@
             border-radius: 8px;
             background: rgba(255,255,255,0.95);
             font-size: 1rem;
+            width: 100%;
         }
         input:focus, select:focus {
             outline: none;
@@ -128,7 +126,7 @@
         .destinations {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
         @media (max-width: 640px) { .destinations { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 480px) { .destinations { grid-template-columns: 1fr; } }
@@ -145,6 +143,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background 0.3s ease;
+            width: 100%;
         }
         .dest-toggle.active {
             background: var(--accent);
@@ -165,6 +165,10 @@
             font-size: 1.15rem;
             font-weight: 600;
             cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        button[type="submit"]:hover, #reset:hover {
+            transform: scale(1.05);
         }
         #error-message {
             grid-column: 1 / -1;
@@ -185,7 +189,7 @@
         .plans-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px; /* Slightly increased for readability */
+            gap: 12px;
         }
         @media (min-width: 769px) {
             .plans-container { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
@@ -231,6 +235,10 @@
             align-self: center;
             width: 100%;
             max-width: 280px;
+            transition: background 0.3s ease;
+        }
+        .quote-btn:hover {
+            background: #003a8c;
         }
         .notes p { margin: 8px 0; text-align: center; font-size: 0.95rem; }
         .disclaimer {
@@ -258,10 +266,10 @@
     <div class="container">
         <header style="text-align: center; margin-bottom: 28px;">
             <h1 style="color: var(--primary); margin-bottom: 8px;">
-                Calculate Your Ideal Coverage in Seconds!
+                Calculate Your Ideal Coverage in Seconds! 🚀
             </h1>
             <p class="hero-subtitle">
-                Personalized Travel Insurance Recommendations
+                Personalized Travel Insurance Recommendations 🌟
             </p>
             <!-- AVISO COMO AFIRMACIÓN DIRECTA -->
             <div class="geo-notice">
@@ -273,11 +281,11 @@
             <form id="insurance-form">
                 <div class="form-grid">
                     <div class="field">
-                        <label for="age"><i class="fas fa-user"></i> Your Age</label>
+                        <label for="age"><i class="fas fa-user"></i> Your Age 👤</label>
                         <input type="number" id="age" min="1" max="120" required placeholder="e.g. 32">
                     </div>
                     <div class="field">
-                        <label for="pre-existing"><i class="fas fa-heartbeat"></i> Pre-existing Conditions?</label>
+                        <label for="pre-existing"><i class="fas fa-heartbeat"></i> Pre-existing Conditions? ❤️</label>
                         <select id="pre-existing">
                             <option value="">Select...</option>
                             <option>No</option>
@@ -285,7 +293,7 @@
                         </select>
                     </div>
                     <div class="field">
-                        <label for="duration"><i class="fas fa-calendar-alt"></i> Trip Duration</label>
+                        <label for="duration"><i class="fas fa-calendar-alt"></i> Trip Duration 📅</label>
                         <select id="duration">
                             <option value="">Select...</option>
                             <option>1 - 30 Days</option>
@@ -294,11 +302,11 @@
                         </select>
                     </div>
                     <div class="field">
-                        <label for="travelers"><i class="fas fa-users"></i> Number of Travelers</label>
+                        <label for="travelers"><i class="fas fa-users"></i> Number of Travelers 👥</label>
                         <input type="number" id="travelers" min="1" placeholder="e.g. 1 or 5">
                     </div>
                     <div class="field">
-                        <label for="trip-type"><i class="fas fa-plane"></i> Trip Type</label>
+                        <label for="trip-type"><i class="fas fa-plane"></i> Trip Type ✈️</label>
                         <select id="trip-type">
                             <option value="">Select...</option>
                             <option>Tourism / Business</option>
@@ -310,7 +318,7 @@
                         </select>
                     </div>
                     <div class="field">
-                        <label for="deductible"><i class="fas fa-hand-holding-usd"></i> Prefer Deductible?</label>
+                        <label for="deductible"><i class="fas fa-hand-holding-usd"></i> Prefer Deductible? 💰</label>
                         <select id="deductible">
                             <option value="">Select...</option>
                             <option>No</option>
@@ -318,7 +326,7 @@
                         </select>
                     </div>
                     <div class="field full-width">
-                        <label><i class="fas fa-globe"></i> Destinations (select all that apply)</label>
+                        <label><i class="fas fa-globe"></i> Destinations (select all that apply) 🌍</label>
                         <div class="destinations">
                             <button type="button" class="dest-toggle" data-dest="USA/Canada">🇺🇸🇨🇦 USA/Canada</button>
                             <button type="button" class="dest-toggle" data-dest="Europe">🇪🇺 Europe</button>
@@ -330,19 +338,19 @@
                     </div>
                     <div id="error-message"></div>
                     <div class="submit-wrapper">
-                        <button type="submit">Show My Plans</button>
+                        <button type="submit">Show My Plans 📋</button>
                     </div>
                 </div>
             </form>
             <div id="results" class="glass">
-                <p class="motivator">Secure your dream trip today – click below and get the perfect coverage in minutes!</p>
+                <p class="motivator">Secure your dream trip today – click below and get the perfect coverage in minutes! ✨</p>
                 <div class="plans-container">
                     <div class="plan-card" id="plan1-card"></div>
                     <div class="plan-card" id="plan2-card"></div>
                 </div>
                 <div class="notes" id="notes"></div>
                 <div style="text-align: center; margin-top: 16px;">
-                    <button id="reset">Try Another Query</button>
+                    <button id="reset">Try Another Query 🔄</button>
                 </div>
                 <p class="disclaimer">Disclaimer: This tool provides general suggestions based on your inputs and is for informational purposes only. Insurance coverage varies by provider, policy terms, conditions, and exclusions. We strongly recommend reviewing the full policy details, terms, and conditions directly with the insurance provider before making any purchase. Nomad Insurance World is an affiliate partner and may receive compensation for referrals or purchases made through our links. Prices and availability are subject to change. Always consult with a licensed insurance professional for personalized advice. Coverage may not be available in all jurisdictions or for all individuals.</p>
             </div>
@@ -350,59 +358,59 @@
     </div>
     <script>
         const plans = {
-            'atlas-travel': { 
-                name: 'Atlas Travel', 
-                highlights: '<ul><li>Up to $2M medical ($50k-$2M options)</li><li>$0–$5k deductible; 100% coinsurance</li><li>24/7 assistance, telehealth, evacuation, dental</li><li>Acute pre-existing (<80); Schengen compliant; COVID covered</li><li>Reviews: 4.4/5; "Great value"</li><li>Exclusions: Pre-existing without waiver, extreme sports, wars</li><li>Prices: From $0.80/day</li></ul>', 
-                why: 'Flexible and high-value for most travelers; customizable and meets Schengen needs.', 
-                quote: 'https://quote.worldtrips.com/atlastravel/?referid=28225-001&language=en-US' 
+            'atlas-travel': {
+                name: 'Atlas Travel',
+                highlights: '<ul><li>Up to $2M medical ($50k-$2M options)</li><li>$0–$5k deductible; 100% coinsurance</li><li>24/7 assistance, telehealth, evacuation, dental</li><li>Acute pre-existing (<80); Schengen compliant; COVID covered</li><li>Reviews: 4.4/5; "Great value"</li><li>Exclusions: Pre-existing without waiver, extreme sports, wars</li><li>Prices: From $0.80/day</li></ul>',
+                why: 'Flexible and high-value for most travelers; customizable and meets Schengen needs.',
+                quote: 'https://quote.worldtrips.com/atlastravel/?referid=28225-001&language=en-US'
             },
-            'genki-traveler': { 
-                name: 'Genki Traveler', 
-                highlights: '<ul><li>€1M+ medical; unlimited emergencies</li><li>Monthly 1–12 months, renewable</li><li>Covers sports (surfing, skiing; excludes extremes >4k m)</li><li>24/7 billing, telehealth; €50 deductible (waived inpatient)</li><li>Home: 42 days/180 emergencies; USA/Canada: 7 days</li><li>Reviews: 4.1/5; "Easy claims"</li><li>Exclusions: Pre-existing, routine, maternity, wars</li><li>Prices: From €35/month</li></ul>', 
-                why: 'Great for nomads and long trips with monthly flexibility and sports coverage.', 
-                quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=traveler' 
+            'genki-traveler': {
+                name: 'Genki Traveler',
+                highlights: '<ul><li>€1M+ medical; unlimited emergencies</li><li>Monthly 1–12 months, renewable</li><li>Covers sports (surfing, skiing; excludes extremes >4k m)</li><li>24/7 billing, telehealth; €50 deductible (waived inpatient)</li><li>Home: 42 days/180 emergencies; USA/Canada: 7 days</li><li>Reviews: 4.1/5; "Easy claims"</li><li>Exclusions: Pre-existing, routine, maternity, wars</li><li>Prices: From €35/month</li></ul>',
+                why: 'Great for nomads and long trips with monthly flexibility and sports coverage.',
+                quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=traveler'
             },
-            'genki-native': { 
-                name: 'Genki Native', 
-                highlights: '<ul><li>Long-term worldwide health; no exclusions</li><li>Covers pre-existing after review (Premium: dental €1k, mental health)</li><li>All sports included (minor exclusions)</li><li>Direct billing, telehealth; home: 30 days/year</li><li>USA/Canada add-on; ages 0-55 signup</li><li>Reviews: 4.1/5; "Good for expats"</li><li>Exclusions: Recent treatments, wars, electives</li><li>Prices: €50/month Basic; €220+ Premium</li></ul>', 
-                why: 'Comprehensive for pre-existing or long-term; like local insurance for 6+ months.', 
-                quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=native' 
+            'genki-native': {
+                name: 'Genki Native',
+                highlights: '<ul><li>Long-term worldwide health; no exclusions</li><li>Covers pre-existing after review (Premium: dental €1k, mental health)</li><li>All sports included (minor exclusions)</li><li>Direct billing, telehealth; home: 30 days/year</li><li>USA/Canada add-on; ages 0-55 signup</li><li>Reviews: 4.1/5; "Good for expats"</li><li>Exclusions: Recent treatments, wars, electives</li><li>Prices: €50/month Basic; €220+ Premium</li></ul>',
+                why: 'Comprehensive for pre-existing or long-term; like local insurance for 6+ months.',
+                quote: 'https://join.genki.world/people?with=nomadinsuranceworld&product=native'
             },
-            'world-nomads': { 
-                name: 'World Nomads Explorer', 
-                highlights: '<ul><li>150+ adventures (skiing, diving; excludes pro)</li><li>$500k medical/evacuation; $10k cancellation</li><li>Gear $3k; delays, disasters; 24/7 assistance</li><li>Buy/extend traveling; COVID covered</li><li>Ages up to 69</li><li>Reviews: 4.2/5; "Quick claims"</li><li>Exclusions: Pre-existing, no-travel zones</li><li>Prices: $100/2-week trip</li></ul>', 
-                why: 'Best for adventures with broad activity and gear protection.', 
-                quote: 'https://www.anrdoezrs.net/click-101619860-15736546?url=https%3A%2F%2Fwww.worldnomads.com%2Ftravel-insurance%2Fquote' 
+            'world-nomads': {
+                name: 'World Nomads Explorer',
+                highlights: '<ul><li>150+ adventures (skiing, diving; excludes pro)</li><li>$500k medical/evacuation; $10k cancellation</li><li>Gear $3k; delays, disasters; 24/7 assistance</li><li>Buy/extend traveling; COVID covered</li><li>Ages up to 69</li><li>Reviews: 4.2/5; "Quick claims"</li><li>Exclusions: Pre-existing, no-travel zones</li><li>Prices: $100/2-week trip</li></ul>',
+                why: 'Best for adventures with broad activity and gear protection.',
+                quote: 'https://www.anrdoezrs.net/click-101619860-15736546?url=https%3A%2F%2Fwww.worldnomads.com%2Ftravel-insurance%2Fquote'
             },
-            'atlas-nomads': { 
-                name: 'Atlas Nomads', 
-                highlights: '<ul><li>1 year coverage; $250k (<64), $100k (65-69)</li><li>$0 deductible; 100% expenses</li><li>Medical, evacuation, interruption; telehealth</li><li>Acute pre-existing (<80); COVID covered</li><li>Reviews: 3/5; "Nomad-friendly"</li><li>Exclusions: Pre-existing, extremes, wars</li><li>Prices: From $1.50/day</li></ul>', 
-                why: 'Suited for nomads with zero deductible and monthly ease.', 
-                quote: 'https://quote.worldtrips.com/nomad-insurance/Home?referid=28225-001&language=en-US' 
+            'atlas-nomads': {
+                name: 'Atlas Nomads',
+                highlights: '<ul><li>1 year coverage; $250k (<64), $100k (65-69)</li><li>$0 deductible; 100% expenses</li><li>Medical, evacuation, interruption; telehealth</li><li>Acute pre-existing (<80); COVID covered</li><li>Reviews: 3/5; "Nomad-friendly"</li><li>Exclusions: Pre-existing, extremes, wars</li><li>Prices: From $1.50/day</li></ul>',
+                why: 'Suited for nomads with zero deductible and monthly ease.',
+                quote: 'https://quote.worldtrips.com/nomad-insurance/Home?referid=28225-001&language=en-US'
             },
-            'global-rescue': { 
-                name: 'Global Rescue', 
-                highlights: '<ul><li>Evacuation/rescue worldwide; no deductibles</li><li>24/7 advisory, telehealth; no activity exclusions</li><li>Interruption 150%; cancellation $100k add-on</li><li>COVID covered; home hospital choice</li><li>Reviews: 4/5; "Rapid response"</li><li>Exclusions: Pre-existing planned, pregnancy >2nd trimester</li><li>Prices: $139+ membership</li></ul>', 
-                why: 'Top for extremes with elite rescue and no limits.', 
-                quote: 'https://partner.globalrescue.com/nomadinsurance/index.html' 
+            'global-rescue': {
+                name: 'Global Rescue',
+                highlights: '<ul><li>Evacuation/rescue worldwide; no deductibles</li><li>24/7 advisory, telehealth; no activity exclusions</li><li>Interruption 150%; cancellation $100k add-on</li><li>COVID covered; home hospital choice</li><li>Reviews: 4/5; "Rapid response"</li><li>Exclusions: Pre-existing planned, pregnancy >2nd trimester</li><li>Prices: $139+ membership</li></ul>',
+                why: 'Top for extremes with elite rescue and no limits.',
+                quote: 'https://partner.globalrescue.com/nomadinsurance/index.html'
             },
-            'atlas-studentsecure': { 
-                name: 'Atlas StudentSecure', 
-                highlights: '<ul><li>4 levels ($200k-$5M); J-1/F-1 compliant</li><li>Rec sports; mental health; maternity (high)</li><li>Telehealth; acute pre-existing (6-12 months)</li><li>Vaccines, terrorism, interruption</li><li>Ages up to 65+</li><li>Reviews: 4/5; "Affordable visa"</li><li>Exclusions: Pre-existing initial, extremes</li><li>Prices: $30/month Budget</li></ul>', 
-                why: 'Ideal for students with visa compliance and flexible pay.', 
-                quote: 'https://quote.worldtrips.com/studentsecure/?referid=28225-001&language=en-US' 
+            'atlas-studentsecure': {
+                name: 'Atlas StudentSecure',
+                highlights: '<ul><li>4 levels ($200k-$5M); J-1/F-1 compliant</li><li>Rec sports; mental health; maternity (high)</li><li>Telehealth; acute pre-existing (6-12 months)</li><li>Vaccines, terrorism, interruption</li><li>Ages up to 65+</li><li>Reviews: 4/5; "Affordable visa"</li><li>Exclusions: Pre-existing initial, extremes</li><li>Prices: $30/month Budget</li></ul>',
+                why: 'Ideal for students with visa compliance and flexible pay.',
+                quote: 'https://quote.worldtrips.com/studentsecure/?referid=28225-001&language=en-US'
             },
-            'atlas-group': { 
-                name: 'Atlas Group', 
-                highlights: '<ul><li>10-15% discount for 5+</li><li>Up to $2M medical, evacuation</li><li>Group payment; acute pre-existing (<80)</li><li>Ages up to 80+</li><li>Reviews: "Great for teams"</li><li>Exclusions: Pre-existing, no pets</li><li>Prices: $1/day per person</li></ul>', 
-                why: 'Cost-saving for groups with streamlined family/tour coverage.', 
-                quote: 'https://quote.worldtrips.com/group/?referid=28225-001' 
+            'atlas-group': {
+                name: 'Atlas Group',
+                highlights: '<ul><li>10-15% discount for 5+</li><li>Up to $2M medical, evacuation</li><li>Group payment; acute pre-existing (<80)</li><li>Ages up to 80+</li><li>Reviews: "Great for teams"</li><li>Exclusions: Pre-existing, no pets</li><li>Prices: $1/day per person</li></ul>',
+                why: 'Cost-saving for groups with streamlined family/tour coverage.',
+                quote: 'https://quote.worldtrips.com/group/?referid=28225-001'
             },
-            'atlas-multitrip': { 
-                name: 'Atlas MultiTrip', 
-                highlights: '<ul><li>Unlimited trips/364 days; $1M per</li><li>Trips 30/45 days; luggage, liability</li><li>Evacuation; acute pre-existing (<70)</li><li>Ages up to 80+</li><li>Reviews: "Frequent trips"</li><li>Exclusions: USA trips, pre-existing, extremes</li><li>Prices: $193/year</li><li>Not in certain states</li></ul>', 
-                why: 'Efficient annual plan for frequent travelers covering multiple trips.', 
-                quote: 'https://quote.worldtrips.com/multitrip/?referid=28225-001&language=en-US' 
+            'atlas-multitrip': {
+                name: 'Atlas MultiTrip',
+                highlights: '<ul><li>Unlimited trips/364 days; $1M per</li><li>Trips 30/45 days; luggage, liability</li><li>Evacuation; acute pre-existing (<70)</li><li>Ages up to 80+</li><li>Reviews: "Frequent trips"</li><li>Exclusions: USA trips, pre-existing, extremes</li><li>Prices: $193/year</li><li>Not in certain states</li></ul>',
+                why: 'Efficient annual plan for frequent travelers covering multiple trips.',
+                quote: 'https://quote.worldtrips.com/multitrip/?referid=28225-001&language=en-US'
             }
         };
         document.addEventListener('DOMContentLoaded', () => {
@@ -499,20 +507,22 @@
                     notes.push('If purchase restricted in home country (e.g., Canada, Australia, EU), click "CONTINUE" – it\'s regulatory only; coverage still available.');
                 }
                 document.getElementById('plan1-card').innerHTML = `
-                    <h2>${plans[plan1].name}</h2>
+                    <h2>${plans[plan1].name} 📑</h2>
                     ${plans[plan1].highlights}
-                    <div class="why-section"><strong>Why this Travel Insurance?</strong> ${plans[plan1].why}</div>
-                    <a class="quote-btn" href="${plans[plan1].quote}" target="_blank" rel="noopener noreferrer">Get FREE Quote</a>
+                    <div class="why-section"><strong>Why this Travel Insurance? ❓</strong> ${plans[plan1].why}</div>
+                    <a class="quote-btn" href="${plans[plan1].quote}" target="_blank" rel="noopener noreferrer">Get FREE Quote 💸</a>
                 `;
                 document.getElementById('plan2-card').innerHTML = `
-                    <h2>${plans[plan2].name}</h2>
+                    <h2>${plans[plan2].name} 📑</h2>
                     ${plans[plan2].highlights}
-                    <div class="why-section"><strong>Why this Travel Insurance?</strong> ${plans[plan2].why}</div>
-                    <a class="quote-btn" href="${plans[plan2].quote}" target="_blank" rel="noopener noreferrer">Get FREE Quote</a>
+                    <div class="why-section"><strong>Why this Travel Insurance? ❓</strong> ${plans[plan2].why}</div>
+                    <a class="quote-btn" href="${plans[plan2].quote}" target="_blank" rel="noopener noreferrer">Get FREE Quote 💸</a>
                 `;
                 document.getElementById('notes').innerHTML = notes.map(n => `<p>${n}</p>`).join('');
                 form.style.display = 'none';
                 results.style.display = 'block';
+                // Auto-scroll to results
+                results.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
             resetBtn.addEventListener('click', () => {
                 form.reset();
